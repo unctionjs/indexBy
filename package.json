@@ -1,7 +1,7 @@
 {
-  "name": "@unction/{{FQNAME}}",
+  "name": "@unction/indexby",
   "version": "1.0.0",
-  "description": "",
+  "description": "Creates an object where the keys are results of mapping the record and the values are those that have the same key",
   "keywords": [
     "unction",
     "functional"
@@ -14,9 +14,9 @@
     }
   ],
   "license": "ISC",
-  "homepage": "https://github.com/unctionjs/{{NAME}}#readme",
-  "repository": "github:unctionjs/{{NAME}}",
-  "bugs": "https://github.com/unctionjs/{{NAME}}/issues",
+  "homepage": "https://github.com/unctionjs/indexBy#readme",
+  "repository": "github:unctionjs/indexBy",
+  "bugs": "https://github.com/unctionjs/indexBy/issues",
   "main": "transpiled/index.js",
   "files": [
     "transpiled/index.js"
@@ -38,6 +38,7 @@
     "watch": "chokidar './index.js' './test.js' --command 'npm run ci --silent'"
   },
   "devDependencies": {
+    "@unction/key": "4.11.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.0",
@@ -58,5 +59,8 @@
     "nyc": "11.2.1",
     "tap": "10.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@unction/mergeright": "3.36.2",
+    "@unction/reducewithvaluekey": "5.0.0"
+  }
 }

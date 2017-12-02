@@ -1,17 +1,45 @@
-# @unction/{{NAME}}
+# @unction/indexBy
 
 ![Tests][BADGE_TRAVIS]
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> mixed -> mixed
+> (RecordType -> KeyType) -> Array<RecordType> -> RecordType<Array<RecordType>>
 
-An example function.
+Creates an object where the keys are results of mapping the record and the values are those that have the same key.
 
 ``` javascript
-{{NAME}}(1) // 1
+indexBy(key("id"))([
+  {
+    id: "aaa",
+    name: "Kurtis Rainbolt-Greene",
+  },
+  {
+    id: "bbb",
+    name: "Angela Rainbolt-Greene",
+  },
+])
 ```
 
-[BADGE_TRAVIS]: https://img.shields.io/travis/unctionjs/{{NAME}}.svg?maxAge=2592000&style=flat-square
+Which returns:
+
+``` javascript
+{
+  aaa: [
+    {
+      id: "aaa",
+      name: "Kurtis Rainbolt-Greene",
+    },
+  ],
+  bbb: [
+    {
+      id: "bbb",
+      name: "Angela Rainbolt-Greene",
+    },
+  ],
+}
+```
+
+[BADGE_TRAVIS]: https://img.shields.io/travis/unctionjs/indexBy.svg?maxAge=2592000&style=flat-square
 [BADGE_STABILITY]: https://img.shields.io/badge/stability-strong-green.svg?maxAge=2592000&style=flat-square
-[BADGE_DEPENDENCY]: https://img.shields.io/david/unctionjs/{{NAME}}.svg?maxAge=2592000&style=flat-square
+[BADGE_DEPENDENCY]: https://img.shields.io/david/unctionjs/indexBy.svg?maxAge=2592000&style=flat-square
