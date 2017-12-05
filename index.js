@@ -6,8 +6,6 @@ import of from "@unction/of"
 
 export default function indexBy (unction: RecordType => KeyType): UnaryFunctionType {
   return function indexByUnction (list: ListType<RecordType>): RecordType<RecordType> {
-    const sampling: RecordType = first(Array.from(list))
-
     return reduceValues(
       (accumulated: RecordType<RecordType>): UnaryFunctionType =>
         (value: ValueType): RecordType<RecordType> =>
@@ -19,11 +17,11 @@ export default function indexBy (unction: RecordType => KeyType): UnaryFunctionT
             )(
               value
             )(
-              fresh(sampling)
+              accumulated
             )
           )
     )(
-      fresh(sampling)
+      fresh(first(Array.from(list)))
     )(
       list
     )
