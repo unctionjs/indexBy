@@ -4,9 +4,11 @@ import key from "@unction/key"
 
 import indexBy from "./index"
 
-test(({same, end}) => {
+test("Multiple Object different key in Array", ({same, end}) => {
   same(
-    indexBy(key("id"))([
+    indexBy(
+      key("id")
+    )([
       {
         id: "aaa",
         name: "Kurtis Rainbolt-Greene",
@@ -17,25 +19,21 @@ test(({same, end}) => {
       },
     ]),
     {
-      aaa: [
-        {
-          id: "aaa",
-          name: "Kurtis Rainbolt-Greene",
-        },
-      ],
-      bbb: [
-        {
-          id: "bbb",
-          name: "Angela Rainbolt-Greene",
-        },
-      ],
+      aaa: {
+        id: "aaa",
+        name: "Kurtis Rainbolt-Greene",
+      },
+      bbb: {
+        id: "bbb",
+        name: "Angela Rainbolt-Greene",
+      },
     }
   )
 
   end()
 })
 
-test(({same, end}) => {
+test("Multiple Object same key in Array", ({same, end}) => {
   same(
     indexBy(key("id"))([
       {
@@ -48,13 +46,120 @@ test(({same, end}) => {
       },
     ]),
     {
-      aaa: [
-        {
-          id: "aaa",
-          name: "Angela Rainbolt-Greene",
-        },
-      ],
+      aaa: {
+        id: "aaa",
+        name: "Angela Rainbolt-Greene",
+      },
     }
+  )
+
+  end()
+})
+
+test("Multiple Map different key in Set", ({same, end}) => {
+  same(
+    indexBy(
+      key("id")
+    )(
+      new Set([
+        new Map([
+          [
+            "id",
+            "aaa",
+          ],
+          [
+            "name",
+            "Kurtis Rainbolt-Greene",
+          ],
+        ]),
+        new Map([
+          [
+            "id",
+            "bbb",
+          ],
+          [
+            "name",
+            "Angela Rainbolt-Greene",
+          ],
+        ]),
+      ])
+    ),
+    new Map([
+      [
+        "aaa",
+        new Map([
+          [
+            "id",
+            "aaa",
+          ],
+          [
+            "name",
+            "Kurtis Rainbolt-Greene",
+          ],
+        ]),
+      ],
+      [
+        "bbb",
+        new Map([
+          [
+            "id",
+            "bbb",
+          ],
+          [
+            "name",
+            "Angela Rainbolt-Greene",
+          ],
+        ]),
+      ],
+    ])
+  )
+
+  end()
+})
+
+test("Multiple Map same key in Set", ({same, end}) => {
+  same(
+    indexBy(
+      key("id")
+    )(
+      new Set([
+        new Map([
+          [
+            "id",
+            "aaa",
+          ],
+          [
+            "name",
+            "Kurtis Rainbolt-Greene",
+          ],
+        ]),
+        new Map([
+          [
+            "id",
+            "aaa",
+          ],
+          [
+            "name",
+            "Angela Rainbolt-Greene",
+          ],
+        ]),
+      ])
+    ),
+    new Map([
+      [
+        "aaa",
+        new Map([
+          [
+            "id",
+            "aaa",
+          ],
+          [
+            "name",
+            "Angela Rainbolt-Greene",
+          ],
+        ]),
+      ],
+    ])
   )
 
   end()

@@ -4,12 +4,14 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (RecordType -> KeyType) -> Array<RecordType> -> RecordType<Array<RecordType>>
+> (RecordType -> KeyType) -> ListType<RecordType> -> RecordType<RecordType>
 
-Creates an object where the keys are results of mapping the record and the values are those that have the same key.
+Creates a record tree where the key is a computation on the value and the value is the original value.
 
 ``` javascript
-indexBy(key("id"))([
+indexBy(
+  key("id")
+)([
   {
     id: "aaa",
     name: "Kurtis Rainbolt-Greene",
@@ -25,19 +27,47 @@ Which returns:
 
 ``` javascript
 {
-  aaa: [
-    {
-      id: "aaa",
-      name: "Kurtis Rainbolt-Greene",
-    },
-  ],
-  bbb: [
-    {
-      id: "bbb",
-      name: "Angela Rainbolt-Greene",
-    },
-  ],
+  aaa: {
+    id: "aaa",
+    name: "Kurtis Rainbolt-Greene",
+  },
+  bbb: {
+    id: "bbb",
+    name: "Angela Rainbolt-Greene",
+  },
 }
+```
+
+``` javascript
+indexBy(
+  key("id")
+)(
+  new Set([
+    new Map(
+      ["id", "aaa"],
+      ["name", "Kurtis Rainbolt-Greene"]
+    ),
+    new Map(
+      ["id", "bbb"],
+      ["name", "Angela Rainbolt-Greene"]
+    )
+  ])
+)
+```
+
+Which returns:
+
+``` javascript
+new Map([
+  ["aaa", new Map(
+    ["id", "aaa"],
+    ["name", "Kurtis Rainbolt-Greene"]
+  )],
+  ["bbb", new Map(
+    ["id", "bbb"],
+    ["name", "Angela Rainbolt-Greene"]
+  )],
+])
 ```
 
 [BADGE_TRAVIS]: https://img.shields.io/travis/unctionjs/indexBy.svg?maxAge=2592000&style=flat-square
