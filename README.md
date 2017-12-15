@@ -43,14 +43,14 @@ indexBy(
   key("id")
 )(
   new Set([
-    new Map(
+    new Map([
       ["id", "aaa"],
       ["name", "Kurtis Rainbolt-Greene"]
-    ),
-    new Map(
+    ]),
+    new Map([
       ["id", "bbb"],
       ["name", "Angela Rainbolt-Greene"]
-    )
+    ])
   ])
 )
 ```
@@ -59,14 +59,14 @@ Which returns:
 
 ``` javascript
 new Map([
-  ["aaa", new Map(
+  ["aaa", new Map([
     ["id", "aaa"],
     ["name", "Kurtis Rainbolt-Greene"]
-  )],
-  ["bbb", new Map(
+  ])],
+  ["bbb", new Map([
     ["id", "bbb"],
     ["name", "Angela Rainbolt-Greene"]
-  )],
+  ])],
 ])
 ```
 
