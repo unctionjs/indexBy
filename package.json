@@ -17,7 +17,7 @@
   "homepage": "https://github.com/unctionjs/indexBy#readme",
   "repository": "github:unctionjs/indexBy",
   "bugs": "https://github.com/unctionjs/indexBy/issues",
-  "main": "transpiled/main.js",
+  "main": "main.js",
   "files": [
     "index.js",
     "main.js",
@@ -74,5 +74,5 @@
     "@unction/reducewithvaluekey": "10.1.0"
   },
   "module": "index.js",
-  "browser": "transpiled/browser.js"
+  "browser": "browser.js"
 }
