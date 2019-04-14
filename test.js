@@ -1,8 +1,8 @@
 /* eslint-disable flowtype/require-return-type */
-import {test} from "tap"
-import key from "@unction/key"
+import {test} from "tap";
+import key from "@unction/key";
 
-import indexBy from "./index"
+import indexBy from "./index";
 
 test("Multiple Object different key in Array", ({same, end}) => {
   same(
@@ -28,10 +28,10 @@ test("Multiple Object different key in Array", ({same, end}) => {
         name: "Angela Rainbolt-Greene",
       },
     }
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("Multiple Object same key in Array", ({same, end}) => {
   same(
@@ -51,10 +51,10 @@ test("Multiple Object same key in Array", ({same, end}) => {
         name: "Angela Rainbolt-Greene",
       },
     }
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("Multiple Map different key in Set", ({same, end}) => {
   same(
@@ -112,10 +112,10 @@ test("Multiple Map different key in Set", ({same, end}) => {
         ]),
       ],
     ])
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("Multiple Map same key in Set", ({same, end}) => {
   same(
@@ -160,7 +160,7 @@ test("Multiple Map same key in Set", ({same, end}) => {
         ]),
       ],
     ])
-  )
+  );
 
-  end()
-})
+  end();
+});
