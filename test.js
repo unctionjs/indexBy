@@ -1,8 +1,8 @@
-/* eslint-disable flowtype/require-return-type */
+
 import {test} from "tap";
 import key from "@unction/key";
 
-import indexBy from "./index";
+import indexBy from "./";
 
 test("Multiple Object different key in Array", ({same, end}) => {
   same(
