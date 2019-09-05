@@ -4,7 +4,7 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (RecordType => KeyType) => ListType<RecordType> => RecordType<RecordType>
+> MapperFunctionType<A, B> => ListType<A> => Map<B, A>
 
 Creates a record tree where the key is a computation on the value and the value is the original value.
 

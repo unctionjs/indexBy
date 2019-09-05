@@ -3,8 +3,20 @@ import reduceValues from "@unction/reducevalues";
 import fresh from "@unction/fresh";
 import first from "@unction/first";
 import of from "@unction/of";
-export default function indexBy (unction) {
-  return function indexByUnction (list) {
-    return reduceValues((accumulated) => (value) => mergeRight(accumulated)(of(unction(value))(value)(accumulated)))(fresh(first(Array.from(list))))(list);
+import {MapperFunctionType} from "./types";
+import {ListType} from "./types";
+
+export default function indexBy<A, B> (unction: MapperFunctionType<A, B>) {
+  return function indexByUnction (list: ListType<A>): Map<B, A> {
+    return reduceValues(
+      (accumulated: Map<B, A>) => (value: A) => mergeRight(
+        accumulated
+      )(
+        of(unction(value))(value)(accumulated)
+      )
+    )(
+      // TODO: Switch to new Map(), like group by
+      fresh(first(Array.from(list)))
+    )(list);
   };
 }
