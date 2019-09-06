@@ -1,7 +1,7 @@
 
 import key from "@unction/key";
 
-import indexBy from "./index.ts";
+import indexBy from "./index";
 
 test("Multiple Object different key in Array", () => {
   expect(indexBy(
