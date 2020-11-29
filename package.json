@@ -1,6 +1,6 @@
 {
   "name": "@unction/indexby",
-  "version": "10.11.0",
+  "version": "10.12.0",
   "description": "Creates an object where the keys are results of mapping the record and the values are those that have the same key",
   "keywords": [
     "unction",
