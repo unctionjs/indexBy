@@ -4,10 +4,9 @@ import fresh from "@unction/fresh";
 import first from "@unction/first";
 import of from "@unction/of";
 import {MapperFunctionType} from "./types";
-import {ListType} from "./types";
 
 export default function indexBy<A, B> (unction: MapperFunctionType<A, B>) {
-  return function indexByUnction (list: ListType<A>): Map<B, A> {
+  return function indexByUnction (list: Array<A> | Set<A>): Map<B, A> {
     return reduceValues(
       (accumulated: Map<B, A>) => (value: A) => mergeRight(
         accumulated
